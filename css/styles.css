@@ -1,0 +1,25 @@
+/* Basic styling for the demo, adjust as needed */
+#street {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: #eee;
+}
+
+.path {
+    width: 10vw;
+    height: 100vh;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%);
+    background-color: lightgray;
+}
+
+.pedestrian {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: #333; 
+    border-radius: 50%;
+}
+
