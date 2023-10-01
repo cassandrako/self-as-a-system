@@ -1,7 +1,18 @@
+body {
+    background-image: url("../assets/classroom-puzzle.png");
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .game-container {
     max-width: 500px;
     margin: 50px auto;
     padding: 20px;
+    background-color: rgba(240, 240, 240, 0.363);
     border: 1px solid #ccc;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -16,3 +27,22 @@
     line-height: 50px;
     font-weight: bold;
 }
+
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 10;  
+    opacity: 1;
+    transition: opacity 1s ease-out; 
+}
+
+

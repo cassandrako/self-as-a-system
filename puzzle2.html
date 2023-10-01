@@ -9,12 +9,18 @@
 </head>
 
 <body>
+
+    <div class="alert">
+        after making it to class, your prof tells you that you have a pop quiz to test your memory of sequences...
+    </div>
+
     <div class="game-container">
         <div class="sequence-display"></div>
         <p id="question"></p>
         <input id="answer" type="text" placeholder="Your answer here...">
         <button onclick="checkAnswer()">Submit</button>
         <p id="feedback"></p>
+        <button onclick="resetGame()">Reset Game</button>
     </div>
 
     <script src="puzzleJS/puzzle2.js"></script>
