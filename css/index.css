@@ -1,0 +1,40 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.background {
+    height: 100%;
+    background-image: url("../assets/bedroom.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    position: relative;
+}
+
+.door {
+    width: 150px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-left: 15px solid #5e3416af; 
+    position: absolute;  
+    right: 0;
+    top: 50%;  
+    transform: translateY(-50%); 
+    cursor: pointer;
+    transition: all 0.3s ease;  
+}
+
+.door:hover {
+    width: 160px; 
+}
+
+
+
+
+

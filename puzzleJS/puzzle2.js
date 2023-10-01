@@ -58,7 +58,7 @@ function displayNextSequence() {
 function poseQuestion() {
     const questionElem = document.getElementById('question');
     currentQuestion = allSequences[currentRound];
-    questionElem.textContent = `What was the shape/letter/number for the ${currentQuestion[0].colorName} color?`;
+    questionElem.textContent = `What was the letter/number for the ${currentQuestion[0].colorName} color?`;
 }
 
 function checkAnswer() {
@@ -92,7 +92,7 @@ function finalChallenge() {
 
 function checkAnswer() {
     if (currentRound >= 4) {
-        return;  // If we're at the final sequence stage, we don't want this function to do anything.
+        return; 
     }
     
     const userInput = document.getElementById('answer').value.toUpperCase();
@@ -109,7 +109,7 @@ function checkAnswer() {
             displayNextSequence();
         }, 2000);
     } else {
-        feedback.textContent = "Wrong! You failed your pop quiz.";
+        feedback.textContent = "Wrong! You failed your pop quiz. Try Again.";
         feedback.style.color = "red";
     }
 }
