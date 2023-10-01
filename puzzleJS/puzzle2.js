@@ -84,6 +84,52 @@ function checkAnswer() {
 function finalChallenge() {
     const questionElem = document.getElementById('question');
     questionElem.textContent = "I hope you remembered all your answers... Please write them in sequence (no spaces):";
+    
+    const answerElem = document.getElementById('answer');
+    answerElem.setAttribute('maxlength', '4'); 
+    answerElem.onchange = checkFinalSequence;   
+}
+
+function checkAnswer() {
+    if (currentRound >= 4) {
+        return;  // If we're at the final sequence stage, we don't want this function to do anything.
+    }
+    
+    const userInput = document.getElementById('answer').value.toUpperCase();
+    const feedback = document.getElementById('feedback');
+
+    if (userInput === currentQuestion[0].character) {
+        userAnswers.push(userInput);
+        feedback.textContent = "Correct! Remember this answer.";
+        feedback.style.color = "green";
+        document.getElementById('answer').value = '';
+        setTimeout(() => {
+            feedback.textContent = '';
+            currentRound++;
+            displayNextSequence();
+        }, 2000);
+    } else {
+        feedback.textContent = "Wrong! You failed your pop quiz.";
+        feedback.style.color = "red";
+    }
+}
+
+function checkFinalSequence() {
+    const userInput = document.getElementById('answer').value.toUpperCase();
+    const feedback = document.getElementById('feedback');
+
+    if (userInput === userAnswers.join('')) {
+        feedback.textContent = "Congratulations! You passed the quiz! Onto the next puzzle...";
+        feedback.style.color = "green";
+
+        setTimeout(() => {
+            window.location.href = "puzzle3.html";
+        }, 2000); 
+        
+    } else {
+        feedback.textContent = "Sorry, that's not correct!";
+        feedback.style.color = "red";
+    }
 }
 
 function resetGame() {
