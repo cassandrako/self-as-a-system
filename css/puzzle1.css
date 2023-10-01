@@ -1,10 +1,10 @@
 body {
     margin: 0;
-    overflow: hidden; /* Prevents scrollbars from appearing */
+    overflow: hidden; 
 }
 
 #gameCanvas {
-    display: block; /* Removes default canvas styling */
+    display: block;
     width: 100vw;
     height: 100vh;
     border: none; 

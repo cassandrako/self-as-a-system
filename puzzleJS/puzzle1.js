@@ -5,8 +5,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const startingPosition = {
-    x: 1,  
-    y: 307,  
+    x: 1,
+    y: 307
 };
 
 let cursorPos = { ...startingPosition };
@@ -16,18 +16,24 @@ bgImage.src = "assets/tester-puzzle.png";
 
 const untouchableAreas = [
     [
-        {x: 0, y: 571}, {x: 568, y: 566}, {x: 568, y: 502}, {x: 842, y: 500},
-        {x: 1002, y: 169}, {x: 1585, y: 168}, {x: 1412, y: 419}, {x: 1912, y: 420},
-        {x: 1912, y: 437}, {x: 1392, y: 439}, {x: 1387, y: 429}, {x: 1561, y: 181},
-        {x: 1022, y: 179}, {x: 861, y: 509}, {x: 595, y: 510}, {x: 596, y: 595},
-        {x: 0, y: 597}
+        {x: 0, y: 568}, {x: 569, y: 566}, {x: 569, y: 502}, {x: 842, y: 500},
+        {x: 1000, y: 168}, {x: 1587, y: 169}, {x: 1410, y: 419}, {x: 1916, y: 417},
+        {x: 1919, y: 0}, {x: 0, y: -2}, {x: 0, y: 595}, {x: 0, y: 568}
     ],
     [
-        {x: 837, y: 509}, {x: 836, y: 746}, {x: 1376, y: 751}, {x: 1376, y: 561},
-        {x: 1170, y: 561}, {x: 1168, y: 670}, {x: 1022, y: 668}, {x: 1022, y: 478},
-        {x: 1916, y: 476}, {x: 1914, y: 463}, {x: 997, y: 464}, {x: 1002, y: 683},
-        {x: 1193, y: 680}, {x: 1193, y: 576}, {x: 1342, y: 580}, {x: 1341, y: 736},
-        {x: 863, y: 732}, {x: 863, y: 507}
+        {x: 0, y: 595}, {x: 595, y: 593}, {x: 596, y: 517}, {x: 834, y: 517},
+        {x: 836, y: 748}, {x: 1378, y: 748}, {x: 1376, y: 559}, {x: 1168, y: 556},
+        {x: 1171, y: 675}, {x: 1024, y: 671}, {x: 1024, y: 478}, {x: 1917, y: 478},
+        {x: 1919, y: 917}, {x: 0, y: 914}
+    ],
+    [
+        {x: 861, y: 512}, {x: 863, y: 736}, {x: 1342, y: 731}, {x: 1344, y: 580},
+        {x: 1195, y: 580}, {x: 1193, y: 682}, {x: 1007, y: 685}, {x: 1002, y: 471},
+        {x: 898, y: 434}, {x: 1019, y: 183}, {x: 1560, y: 181}, {x: 1387, y: 424},
+        {x: 1388, y: 439}, {x: 1914, y: 439}, {x: 1912, y: 468}, {x: 1007, y: 469}
+    ],
+    [
+        {x: 902, y: 427}, {x: 864, y: 514}, {x: 1003, y: 471}
     ]
 ];
 
@@ -44,7 +50,7 @@ function isPointInPath(point, path) {
 function drawCursor() {
     ctx.beginPath();
     ctx.arc(cursorPos.x, cursorPos.y, 10, 0, 2 * Math.PI);
-    ctx.fillStyle = "#FF0000";  
+    ctx.fillStyle = "#FF0000";
     ctx.fill();
 }
 
@@ -61,15 +67,21 @@ canvas.addEventListener("mousemove", (e) => {
     const mouseY = e.offsetY;
     const point = { x: mouseX, y: mouseY };
 
+    let isWithinUntouchableArea = false;
     for (const area of untouchableAreas) {
         if (isPointInPath(point, area)) {
-            cursorPos = { ...startingPosition };
-            console.log("Went the wrong way on the subway!");
-            drawGame();
-            return;
+            isWithinUntouchableArea = true;
+            break;
         }
     }
 
-    cursorPos = point;  
+    if (isWithinUntouchableArea) {
+        cursorPos = { ...startingPosition };
+        console.log("Went the wrong way on the subway!");
+        drawGame();
+        return;
+    }
+
+    cursorPos = point;
     drawGame();
 });
