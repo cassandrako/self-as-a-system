@@ -1,12 +1,12 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = 1920
+canvas.height = 1080
 
 const startingPosition = {
     x: 1,
-    y: 307
+    y: 681
 };
 
 let cursorPos = { ...startingPosition };
@@ -66,6 +66,7 @@ canvas.addEventListener("mousemove", (e) => {
     const mouseX = e.offsetX;
     const mouseY = e.offsetY;
     const point = { x: mouseX, y: mouseY };
+    console.log(point);
 
     let isWithinUntouchableArea = false;
     for (const area of untouchableAreas) {
@@ -76,9 +77,7 @@ canvas.addEventListener("mousemove", (e) => {
     }
 
     if (isWithinUntouchableArea) {
-        cursorPos = { ...startingPosition };
         console.log("Went the wrong way on the subway!");
-        drawGame();
         return;
     }
 

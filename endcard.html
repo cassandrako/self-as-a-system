@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/endcard.css">
+    <title>End Card</title>
+
+</head>
+<body>
+    <h1>Your Performance</h1>
+    <p>Successful Lifts: <span id="successful-lifts-display"></span></p>
+    <p>Unsuccessful Lifts: <span id="unsuccessful-lifts-display"></span></p>
+    <p>Total Score: <span id="total-score-display"></span></p>
+    <button onclick="goHome()">Go Home</button>
+    <script>
+        let successfulLifts = localStorage.getItem('successfulLifts');
+        let unsuccessfulLifts = localStorage.getItem('unsuccessfulLifts');
+        let totalScore = localStorage.getItem('totalScore');
+
+        document.getElementById('successful-lifts-display').textContent = successfulLifts;
+        document.getElementById('unsuccessful-lifts-display').textContent = unsuccessfulLifts;
+        document.getElementById('total-score-display').textContent = totalScore;
+
+        function goHome() {
+            
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

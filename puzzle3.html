@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weightlifting Game</title>
+    <link rel="stylesheet" href="css/puzzle3.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="scorecard">
+            <p>Current Score: <span id="current-score-display">0</span></p>
+            <p>Current Set: <span id="set-display">1</span></p>
+            <p>Current Rep: <span id="rep-display">0</span></p>
+        </div>
+        <img src="assets/dumbbell.png" alt="dumbbell" id="dumbbell">
+    
+        <div class="action-container">
+            <p id="feedback"></p>
+            <button onclick="attemptLift()">Lift!</button>
+        </div>
+    </div>
+    
+    <script src="puzzleJS/puzzle3.js"></script>
+</body>
+
+</html>
