@@ -9,23 +9,15 @@
 </head>
 <body>
     <h1>Your Performance</h1>
+    <p>Quiz Attempts: <span id="quiz-attempts-display"></span></p>
     <p>Successful Lifts: <span id="successful-lifts-display"></span></p>
     <p>Unsuccessful Lifts: <span id="unsuccessful-lifts-display"></span></p>
     <p>Total Score: <span id="total-score-display"></span></p>
+    <p>Wordle Guesses: <span id="wordle-guesses-display"></span></p> 
     <button onclick="goHome()">Go Home</button>
-    <script>
-        let successfulLifts = localStorage.getItem('successfulLifts');
-        let unsuccessfulLifts = localStorage.getItem('unsuccessfulLifts');
-        let totalScore = localStorage.getItem('totalScore');
 
-        document.getElementById('successful-lifts-display').textContent = successfulLifts;
-        document.getElementById('unsuccessful-lifts-display').textContent = unsuccessfulLifts;
-        document.getElementById('total-score-display').textContent = totalScore;
 
-        function goHome() {
-            
-            window.location.href = "index.html";
-        }
-    </script>
+    <script src="puzzleJS/endcard.js"></script>
+
 </body>
 </html>
